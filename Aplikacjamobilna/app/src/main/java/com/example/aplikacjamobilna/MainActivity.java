@@ -52,18 +52,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void  Dodaj() {
+        Statement st= null;
         Skanuj();
         try {
             BazaDanych bazaDanych = new BazaDanych();
 
             laczenie = bazaDanych.SQL();
             if (laczenie != null) {
-                String query = "INSERT INTO kondesator(`Id', `Nazwa`, `Ilość`) VALUES (NULL,"+ komponent +", +"+ x +");";
-                Statement stmt = laczenie.createStatement();
-                stmt.executeQuery(query);
+                String query = "INSERT INTO kondesator VALUES (NULL,'"+komponent+"','"+x+"');";
+                st = laczenie.createStatement();
+                st.executeQuery(query);
+            }
+            else {
+                System.out.println ("blad w kodzie pod !!!");
             }
         }
         catch (Exception ex){
+            System.out.println (ex);
         }
     }
     private void Skanuj() {
@@ -74,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     }
     ActivityResultLauncher<ScanOptions> Scaner = registerForActivityResult( new ScanContract(),result -> {
         if(result.getContents()!=null){
-            komponent=result.getContents();
+            System.out.println (result.getContents());
+            komponent=result.getContents().toString();
         }
     });
 }

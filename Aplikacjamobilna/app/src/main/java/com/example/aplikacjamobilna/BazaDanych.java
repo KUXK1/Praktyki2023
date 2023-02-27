@@ -21,10 +21,10 @@ public class BazaDanych {
         StrictMode.setThreadPolicy(zasady);
         Connection laczenie=null;
         try {
-            Log.e("Error ","dziala");
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             String URL= "jdbc:mysql://"+ ip + ":"+ port + "/"+ bazadanych;
             laczenie = DriverManager.getConnection(URL,"KUXK","123");
+            Log.e("Error ","dziala");
         }
         catch (Exception ex){
             Log.e("Error ",ex.getMessage());
