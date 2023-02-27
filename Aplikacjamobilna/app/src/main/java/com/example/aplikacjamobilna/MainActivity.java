@@ -66,11 +66,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void Skanuj() {
-        ScanOptions Ustawienia = new ScanOptions();
-        Ustawienia.setPrompt("Test");
-        Ustawienia.setBeepEnabled(true);
-        Ustawienia.setOrientationLocked(true);
-        Ustawienia.setCaptureActivity(Permisje.class);
+        ScanOptions Ustawienia = new ScanOptions().setPrompt("Test").setBeepEnabled(true).setOrientationLocked(true).setCaptureActivity(Permisje.class);
+
         Scaner.launch(Ustawienia);
 
     }
