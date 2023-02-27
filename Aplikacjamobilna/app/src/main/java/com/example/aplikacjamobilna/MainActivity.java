@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             BazaDanych bazaDanych = new BazaDanych();
             laczenie = bazaDanych.SQL();
             if (laczenie != null) {
-                String query = "INSERT INTO kondesator (`Id', `Nazwa`, `Ilość`) VALUES (NULL,'Jd', '20')";
+                String query = "INSERT INTO kondesator (`Id', `Nazwa`, `Ilość`) VALUES (NULL,'test', '20')";
                 Statement stmt = laczenie.createStatement();
                 stmt.executeQuery(query);
             }
