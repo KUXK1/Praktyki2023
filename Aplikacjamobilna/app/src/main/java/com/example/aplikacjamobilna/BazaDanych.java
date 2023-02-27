@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 
 public class BazaDanych {
-    Connection polaczenie;
+    Connection laczenie;
     @SuppressLint("NewApi")
     public Connection SQL(){
         String ip="192.168.0.27";
@@ -23,8 +23,8 @@ public class BazaDanych {
         try {
             Log.e("Error ","dziala");
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            String URL= "jdbc:jtds:sqlserver://"+ ip + ":"+ port + ";"+"databasename="+ bazadanych + ";User="+ uzytkownik +";password="+haslo+";";
-            polaczenie = DriverManager.getConnection(URL);
+            String URL= "jdbc:mysql://"+ ip + ":"+ port + "/"+ bazadanych;
+            laczenie = DriverManager.getConnection(URL,"KUXK","123");
         }
         catch (Exception ex){
             Log.e("Error ",ex.getMessage());

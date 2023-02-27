@@ -55,9 +55,10 @@ public class MainActivity extends AppCompatActivity {
         Skanuj();
         try {
             BazaDanych bazaDanych = new BazaDanych();
+
             laczenie = bazaDanych.SQL();
             if (laczenie != null) {
-                String query = "INSERT INTO kondesator (`Id', `Nazwa`, `Ilość`) VALUES (NULL,"+ komponent +", +"+ x +")";
+                String query = "INSERT INTO kondesator(`Id', `Nazwa`, `Ilość`) VALUES (NULL,"+ komponent +", +"+ x +");";
                 Statement stmt = laczenie.createStatement();
                 stmt.executeQuery(query);
             }
