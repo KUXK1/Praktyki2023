@@ -21,6 +21,7 @@ public class BazaDanych {
         StrictMode.setThreadPolicy(zasady);
         Connection laczenie=null;
         try {
+            Log.e("Error ","dziala");
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             String URL= "jdbc:jtds:sqlserver://"+ ip + ":"+ port + ";"+"databasename="+ bazadanych + ";User="+ uzytkownik +";password="+haslo+";";
             polaczenie = DriverManager.getConnection(URL);

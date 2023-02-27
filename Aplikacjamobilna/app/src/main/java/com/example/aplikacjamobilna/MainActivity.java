@@ -8,7 +8,10 @@ import androidx.constraintlayout.motion.widget.Debug;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
@@ -20,15 +23,20 @@ import java.sql.Statement;
 public class MainActivity extends AppCompatActivity {
     Button Dodaj;
     Connection laczenie;
+    EditText ile;
     Button Usun;
     String komponent;
+    String x;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Dodaj=findViewById(R.id.Dodaj);
         Dodaj.setOnClickListener(view -> {
-
+                ile=(EditText)findViewById(R.id.Ile);
+                x=ile.getText().toString();
                 Dodaj();
 
         });
@@ -44,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void  Dodaj() {
-        //Skanuj();
+        Skanuj();
         try {
             BazaDanych bazaDanych = new BazaDanych();
             laczenie = bazaDanych.SQL();
             if (laczenie != null) {
-                String query = "INSERT INTO kondesator (`Id', `Nazwa`, `Ilość`) VALUES (NULL,'test', '20')";
+                String query = "INSERT INTO kondesator (`Id', `Nazwa`, `Ilość`) VALUES (NULL,"+ komponent +", +"+ x +")";
                 Statement stmt = laczenie.createStatement();
                 stmt.executeQuery(query);
             }
