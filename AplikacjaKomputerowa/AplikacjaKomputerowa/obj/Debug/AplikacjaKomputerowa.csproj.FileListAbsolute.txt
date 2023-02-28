@@ -1,0 +1,15 @@
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\bin\Debug\AplikacjaKomputerowa.exe.config
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\bin\Debug\AplikacjaKomputerowa.exe
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\bin\Debug\AplikacjaKomputerowa.pdb
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.csproj.AssemblyReference.cache
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\MainWindow.g.cs
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\App.g.cs
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa_MarkupCompile.cache
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa_MarkupCompile.lref
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\MainWindow.baml
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.g.resources
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.Properties.Resources.resources
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.csproj.GenerateResource.cache
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.csproj.CoreCompileInputs.cache
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.exe
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.pdb

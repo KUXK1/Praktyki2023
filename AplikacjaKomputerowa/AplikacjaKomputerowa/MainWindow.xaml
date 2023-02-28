@@ -1,0 +1,17 @@
+﻿<Window x:Class="AplikacjaKomputerowa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplikacjaKomputerowa"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid>
+        <Button x:Name="Usuń" Content="Usuń" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,0,40"/>
+        <Button x:Name="Wydaj" Content="Wydaj" HorizontalAlignment="Right"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,125,40"/>
+        <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Left"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="125,0,3,40" Click="Dodaj_Click"/>
+        <DataGrid x:Name="Kondesatory"  Width="630" HorizontalAlignment="Left" VerticalAlignment="Top" Height="871"/>
+        <DataGrid x:Name="Rezystory"  Width="630" HorizontalAlignment="Center" VerticalAlignment="Top" Height="871"/>
+        <DataGrid x:Name="Diody"  Width="630" HorizontalAlignment="Right" VerticalAlignment="Top" Height="871"/>
+    </Grid>
+</Window>
