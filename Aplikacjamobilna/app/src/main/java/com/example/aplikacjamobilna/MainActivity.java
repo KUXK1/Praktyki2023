@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     EditText ile;
     Button Usun;
     String komponent;
+    String[] arr=null;
     String x;
 
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Dodaj.setOnClickListener(view -> {
                 ile=(EditText)findViewById(R.id.Ile);
                 x=ile.getText().toString();
+                Skanuj();
                 Dodaj();
 
         });
@@ -49,22 +51,55 @@ public class MainActivity extends AppCompatActivity {
 
     private void Usun() {
         Skanuj();
+        try {
+            BazaDanych bazaDanych = new BazaDanych();
+            laczenie = bazaDanych.SQL();
+            String querySel = "SELECT ilosc FROM komponenty WHERE nazwa = '"+arr[1]+"';";
+            String queryUp = "Update komponenty set ilosc = ilosc -"+x+" where nazwa ='"+arr[1]+"';";
+            if(laczenie!=null){
+                Statement st =laczenie.createStatement();
+                ResultSet rs = st.executeQuery(querySel);
+                if (rs.next()){
+                    int ilosc = rs.getInt("ilosc");
+                    if (ilosc>0){
+                        st.executeQuery(queryUp);
+                    }
+                }
+            }else{
+                System.out.println ("blad w laczu");
+            }
+        }
+        catch (Exception ex){
+            System.out.println (ex);
+        }
+
     }
 
-    private void  Dodaj() {
+    public void  Dodaj() {
         Statement st= null;
-        Skanuj();
         try {
             BazaDanych bazaDanych = new BazaDanych();
 
             laczenie = bazaDanych.SQL();
             if (laczenie != null) {
-                String query = "INSERT INTO kondesator VALUES (NULL,'"+komponent+"','"+x+"');";
+                String queryIn = "INSERT INTO komponenty (ID,typ,nazwa,Ilosc) VALUES (NULL,'"+arr[0]+"' ,'"+arr[1]+"','"+x+"');";
+                String querySel = "SELECT * FROM komponenty WHERE nazwa = '"+arr[1]+"';";
+                String queryUp= "Update komponenty set ilosc = ilosc + "+x+" where nazwa ='"+arr[1]+"';";
                 st = laczenie.createStatement();
-                st.executeQuery(query);
-            }
-            else {
-                System.out.println ("blad w kodzie pod !!!");
+                ResultSet resultSet = st.executeQuery(querySel);
+                if (resultSet.next()) {
+                    st.executeUpdate(queryUp);
+                } else {
+                    st.executeQuery(queryIn);
+                }
+                resultSet.close();
+                st.close();
+                laczenie.close();
+
+            } else {
+                st.close();
+                laczenie.close();
+                System.out.println ("blad w kodzie z encja !!!");
             }
         }
         catch (Exception ex){
@@ -80,7 +115,9 @@ public class MainActivity extends AppCompatActivity {
     ActivityResultLauncher<ScanOptions> Scaner = registerForActivityResult( new ScanContract(),result -> {
         if(result.getContents()!=null){
             System.out.println (result.getContents());
-            komponent=result.getContents().toString();
+            komponent=result.getContents();
+            arr = komponent.split(" ");
+
         }
     });
 }

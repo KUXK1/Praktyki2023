@@ -14,8 +14,6 @@ public class BazaDanych {
     public Connection SQL(){
         String ip="192.168.0.27";
         String bazadanych="magazyn";
-        String uzytkownik="KUXK";
-        String haslo="123";
         String port="3306";
         StrictMode.ThreadPolicy zasady = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(zasady);
