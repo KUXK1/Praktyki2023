@@ -45,7 +45,7 @@ namespace AplikacjaKomputerowa
         private void Radio3_Checked(object sender, RoutedEventArgs e)
         {
             Tabela = "Diodes";
-            Quera = "INSERT INTO Capacitors (Typ, Part_number, Stan, Pojemnosc, Tolerancja, Napiecie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+            Quera = "INSERT INTO Diodes (Typ, Part_number, Stan, Napiecie, Prąd, Kolor, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +61,13 @@ namespace AplikacjaKomputerowa
 
                     break;
                 case "Diodes":
-
+                    Typ = TypD.Text;
+                    Numer = PartD.Text;
+                    Stan = StanD.Text;
+                    Spec1 = SpecD1.Text;
+                    Spec2 = SpecD2.Text;
+                    Spec3 = SpecD3.Text;
+                    Spec4 = SpecD4.Text;
                     break;
                 case "Resistors":
                     Typ = TypR.Text;

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplikacjaKomputerowa"
         mc:Ignorable="d"
-        Title="Dodaj_formularz" Height="450" Width="900">
+        Title="Dodaj_formularz" Height="500
+        " Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="99*"/>
@@ -16,14 +17,14 @@
         <Button Content="OK" HorizontalAlignment="Center" Margin="7,0,408,10" VerticalAlignment="Bottom" Width="76" Click="Button_Click" Grid.Column="3"/>
 
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="372" Margin="0" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="3">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="420" Margin="0" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="3">
             <RadioButton Content="Kondesator" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="Radio1_Checked" GroupName="Tabela"/>
 
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="372" Margin="0,0,296,0" VerticalAlignment="Top" Width="300" Grid.Column="2" Grid.ColumnSpan="2">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="420" Margin="0,0,296,0" VerticalAlignment="Top" Width="300" Grid.Column="2" Grid.ColumnSpan="2">
             <RadioButton Content="Rezystor" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="Radio2_Checked" GroupName="Tabela" />
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="372" Margin="0" VerticalAlignment="Top" Width="300" Grid.Column="3">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="420" Margin="0" VerticalAlignment="Top" Width="300" Grid.Column="3">
             <RadioButton Content="Dioda" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="Radio3_Checked" GroupName="Tabela"/>
         </Border>
         <Label Content="Podaj typ:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="265" Grid.ColumnSpan="2"/>
@@ -50,6 +51,20 @@
         <TextBox x:Name="SpecR2" HorizontalAlignment="Left" Height="23" Margin="10,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
         <Label Content="Podaj MOC:" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167" Grid.Column="2"/>
         <TextBox x:Name="SpecR3" HorizontalAlignment="Left" Height="23" Margin="10,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
+        <Label Content="Podaj typ:" HorizontalAlignment="Left" Margin="200,42,0,0" VerticalAlignment="Top" Width="265" Grid.Column="3"/>
+        <TextBox x:Name="TypD" HorizontalAlignment="Left" Height="23" Margin="200,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <Label Content="Podaj Numer cześci:" HorizontalAlignment="Left" Margin="200,91,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="PartD" HorizontalAlignment="Left" Height="23" Margin="200,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <Label Content="Podaj ilość:" HorizontalAlignment="Left" Margin="200,140,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="StanD" HorizontalAlignment="Left" Height="23" Margin="200,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <Label Content="Podaj Napiecie" HorizontalAlignment="Left" Margin="200,189,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="SpecD1" HorizontalAlignment="Left" Height="23" Margin="200,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <Label Content="Podaj Prąd:" HorizontalAlignment="Left" Margin="200,238,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="SpecD2" HorizontalAlignment="Left" Height="23" Margin="200,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <Label Content="Podaj Kolor:" HorizontalAlignment="Left" Margin="200,292,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="SpecD3" HorizontalAlignment="Left" Height="23" Margin="200,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <Label Content="Podaj Moc:" HorizontalAlignment="Left" Margin="200,346,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="SpecD4" HorizontalAlignment="Left" Height="23" Margin="200,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
 
 
 

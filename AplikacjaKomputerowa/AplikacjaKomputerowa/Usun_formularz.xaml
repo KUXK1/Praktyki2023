@@ -8,10 +8,13 @@
         Title="Usun_formularz" Height="450" Width="200">
     <Grid>
         <Button x:Name="ok" Content="OK" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" HorizontalAlignment="Center" Click="ok_Click_1"/>
-        <TextBox x:Name="Input1" HorizontalAlignment="Center" Height="23" Margin="38,29,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
         <Label Content="Podaj Rodzaj" HorizontalAlignment="Center" Margin="38,5,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
-        <TextBox x:Name="Input2" HorizontalAlignment="Center" Height="23" Margin="38,76,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Podaj Nazwe" HorizontalAlignment="Center" Margin="38,52,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <TextBox x:Name="Input2" HorizontalAlignment="Center" Height="23" Margin="38,133,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Podaj Nazwe" HorizontalAlignment="Center" Margin="38,109,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <RadioButton Content="Kondesator" HorizontalAlignment="Left" Margin="38,34,0,0" VerticalAlignment="Top" GroupName="Rodzaj" Checked="Radio1_Checked"/>
+        <RadioButton Content="Diode" HorizontalAlignment="Left" Margin="38,49,0,0" VerticalAlignment="Top" GroupName="Rodzaj" Checked="Radio2_Checked"/>
+        <RadioButton Content="Rezystor" HorizontalAlignment="Left" Margin="38,64,0,0" VerticalAlignment="Top" GroupName="Rodzaj" Checked="Radio3_Checked"/>
 
 
     </Grid>

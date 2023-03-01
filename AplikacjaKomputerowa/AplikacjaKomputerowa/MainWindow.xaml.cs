@@ -129,7 +129,7 @@ namespace AplikacjaKomputerowa
                     command.Parameters.AddWithValue("@Value3",Spec1 );
                     command.Parameters.AddWithValue("@Value4",Spec2 );
                     command.Parameters.AddWithValue("@Value5",Spec3 );
-                    command.Parameters.AddWithValue("@Value6", Spec3);
+                    if (Tabela == "Diodes") {command.Parameters.AddWithValue("@Value6", Spec4); }
                     command.ExecuteNonQuery();
                 }
                 else
