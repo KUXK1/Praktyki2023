@@ -32,9 +32,19 @@ namespace AplikacjaKomputerowa
         {
             InitializeComponent();
         }
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void Radio1_Checked(object sender, RoutedEventArgs e)
         {
             Tabela = "Capacitors";
+            Quera = "INSERT INTO Capacitors (Typ, Part_number, Stan, Pojemnosc, Tolerancja, Napiecie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+        }
+        private void Radio2_Checked(object sender, RoutedEventArgs e)
+        {
+            Tabela = "Resistors";
+            Quera = "INSERT INTO Resistors (Typ, Part_number, Stan, Rezystancja, Tolerancja, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+        }
+        private void Radio3_Checked(object sender, RoutedEventArgs e)
+        {
+            Tabela = "Diodes";
             Quera = "INSERT INTO Capacitors (Typ, Part_number, Stan, Pojemnosc, Tolerancja, Napiecie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,6 +64,12 @@ namespace AplikacjaKomputerowa
 
                     break;
                 case "Resistors":
+                    Typ = TypR.Text;
+                    Numer = PartR.Text;
+                    Stan = StanR.Text;
+                    Spec1 = SpecR1.Text;
+                    Spec2 = SpecR2.Text;
+                    Spec3 = SpecR3.Text;
                     break;
                 default:
 
