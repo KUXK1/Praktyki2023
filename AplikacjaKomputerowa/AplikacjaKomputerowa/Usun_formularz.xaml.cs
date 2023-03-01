@@ -17,11 +17,11 @@ namespace AplikacjaKomputerowa
     /// <summary>
     /// Logika interakcji dla klasy Dodaj_formularz.xaml
     /// </summary>
-    public partial class Dodaj_formularz : Window
+    public partial class Usun_formularz : Window
     {
         public string x { get; set; }
         public string y { get; set; }
-        public Dodaj_formularz()
+        public Usun_formularz()
         {
             InitializeComponent();
         }
