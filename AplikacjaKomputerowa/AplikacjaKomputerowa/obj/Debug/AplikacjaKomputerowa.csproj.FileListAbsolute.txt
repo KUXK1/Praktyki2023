@@ -13,3 +13,5 @@ C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaK
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.csproj.CoreCompileInputs.cache
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.exe
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.pdb
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Dodaj-formularz.g.cs
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Dodaj-formularz.baml

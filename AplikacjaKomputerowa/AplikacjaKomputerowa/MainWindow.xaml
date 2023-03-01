@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        <Button x:Name="Usuń" Content="Usuń" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,0,40"/>
+        <Button x:Name="Usuń" Content="Usuń" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,0,40" Click="Usuń_Click"/>
         <Button x:Name="Wydaj" Content="Wydaj" HorizontalAlignment="Right"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,125,40"/>
         <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Left"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="125,0,3,40" Click="Dodaj_Click"/>
-        <DataGrid x:Name="Kondesatory"  Width="630" HorizontalAlignment="Left" VerticalAlignment="Top" Height="871"/>
+        <DataGrid x:Name="Kondesatory" AutoGenerateColumns="True"  Width="630" HorizontalAlignment="Left" VerticalAlignment="Top" Height="871"/>
         <DataGrid x:Name="Rezystory"  Width="630" HorizontalAlignment="Center" VerticalAlignment="Top" Height="871"/>
         <DataGrid x:Name="Diody"  Width="630" HorizontalAlignment="Right" VerticalAlignment="Top" Height="871"/>
     </Grid>
