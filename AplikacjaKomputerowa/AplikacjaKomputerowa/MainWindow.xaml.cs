@@ -81,11 +81,9 @@ namespace AplikacjaKomputerowa
                 SqlConnection con = bazaDanych.SQL();
                 con.Open();
                 string sql = $"DELETE FROM {Tabela} WHERE Part_number = @Value0";
-                using (SqlCommand command = new SqlCommand(sql, con))
-                {
-                    command.Parameters.AddWithValue("@Value0", input2);
-                    command.ExecuteNonQuery();
-                }
+                SqlCommand command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@Value0", input2);
+                command.ExecuteNonQuery();
                 con.Close();
                 DataTables();
             }
@@ -151,38 +149,36 @@ namespace AplikacjaKomputerowa
 
         private void left_sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            string lef_sele = selectedItem.Content.ToString();
-            BazaDanych bazaDanych = new BazaDanych();
-            SqlConnection con = bazaDanych.SQL();
-            con.Open();
-            string query1 = $"SELECT * FROM {lef_sele}";
-            using (SqlCommand cmd = new SqlCommand(query1, con))
-            {
+                ComboBox comboBox = (ComboBox)sender;
+                ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+                string lef_sele = selectedItem.Content.ToString();
+                BazaDanych bazaDanych = new BazaDanych();
+                SqlConnection con = bazaDanych.SQL();
+                con.Open();
+                string query1 = $"SELECT * FROM {lef_sele}";
+                SqlCommand cmd = new SqlCommand(query1, con);
                 DataTable dt = new DataTable("komponenty");
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dt);
-                Kondesatory.ItemsSource = dt.DefaultView;
-            }
+                Kondesatory.ItemsSource = dt.DefaultView;      
         }
 
         private void Mid_sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
+
+                ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             string lef_sele = selectedItem.Content.ToString();
             BazaDanych bazaDanych = new BazaDanych();
             SqlConnection con = bazaDanych.SQL();
             con.Open();
             string query1 = $"SELECT * FROM {lef_sele}";
-            using (SqlCommand cmd = new SqlCommand(query1, con))
-            {
+                SqlCommand cmd = new SqlCommand(query1, con);
+
                 DataTable dt = new DataTable("komponenty");
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dt);
                 Rezystory.ItemsSource = dt.DefaultView;
-            }
         }
         private void right_sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -193,13 +189,12 @@ namespace AplikacjaKomputerowa
             SqlConnection con = bazaDanych.SQL();
             con.Open();
             string query1 = $"SELECT * FROM {lef_sele}";
-            using (SqlCommand cmd = new SqlCommand(query1, con))
-            {
-                DataTable dt = new DataTable("komponenty");
-                SqlDataAdapter data = new SqlDataAdapter(cmd);
-                data.Fill(dt);
-                Diody.ItemsSource = dt.DefaultView;
-            }
+            SqlCommand cmd = new SqlCommand(query1, con);
+            DataTable dt = new DataTable("komponenty");
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            data.Fill(dt);
+            Diody.ItemsSource = dt.DefaultView;
+            
         }
     }
 }

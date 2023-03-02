@@ -85,7 +85,6 @@ namespace AplikacjaKomputerowa
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             Typ = Typx.Text;
             Numer = Partx.Text;
             Stan = Stanx.Text;
@@ -93,9 +92,20 @@ namespace AplikacjaKomputerowa
             Spec2 = Spec2x.Text;
             Spec3 = Spec3x.Text;
             Spec4 = Spec4x.Text;
-            DialogResult = true;
-            this.Close();
-            
+            if (Numer == "") { 
+                string messageBoxText = "Pole numer cześci nie może być pusty";
+                string caption = "Error";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBoxResult result;
+                result = MessageBox.Show(messageBoxText, caption, button, icon);
+            }
+            else
+            {
+                DialogResult = true;
+                this.Close();
+            }
+  
         }
 
 
