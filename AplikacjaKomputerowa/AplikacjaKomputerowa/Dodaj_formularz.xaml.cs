@@ -32,21 +32,7 @@ namespace AplikacjaKomputerowa
         {
             InitializeComponent();
         }
-        private void Radio1_Checked(object sender, RoutedEventArgs e)
-        {
-            Tabela = "Capacitors";
-            Quera = "INSERT INTO Capacitors (Typ, Part_number, Stan, Pojemnosc, Tolerancja, Napiecie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
-        }
-        private void Radio2_Checked(object sender, RoutedEventArgs e)
-        {
-            Tabela = "Resistors";
-            Quera = "INSERT INTO Resistors (Typ, Part_number, Stan, Rezystancja, Tolerancja, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
-        }
-        private void Radio3_Checked(object sender, RoutedEventArgs e)
-        {
-            Tabela = "Diodes";
-            Quera = "INSERT INTO Diodes (Typ, Part_number, Stan, Napiecie, Prąd, Kolor, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
-        }        
+
         private void Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -85,27 +71,41 @@ namespace AplikacjaKomputerowa
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Typ = Typx.Text;
-            Numer = Partx.Text;
-            Stan = Stanx.Text;
-            Spec1 = Spec1x.Text;
-            Spec2 = Spec2x.Text;
-            Spec3 = Spec3x.Text;
-            Spec4 = Spec4x.Text;
-            if (Numer == "") { 
-                string messageBoxText = "Pole numer cześci nie może być pusty";
+
+            var x = Type.SelectedItem;
+            if (x != null)
+            {
+                Typ = Typx.Text;
+                Numer = Partx.Text;
+                Stan = Stanx.Text;
+                Spec1 = Spec1x.Text;
+                Spec2 = Spec2x.Text;
+                Spec3 = Spec3x.Text;
+                Spec4 = Spec4x.Text;
+                if (Numer == "")
+                {
+                    string messageBoxText = "Pole numer cześci nie może być pusty";
+                    string caption = "Error";
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Error;
+                    MessageBoxResult result;
+                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+                else
+                {
+                    DialogResult = true;
+                    this.Close();
+                }
+            }
+            else
+            {
+                string messageBoxText = "Musisz wybrać rodzaj";
                 string caption = "Error";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 MessageBoxResult result;
                 result = MessageBox.Show(messageBoxText, caption, button, icon);
             }
-            else
-            {
-                DialogResult = true;
-                this.Close();
-            }
-  
         }
 
 

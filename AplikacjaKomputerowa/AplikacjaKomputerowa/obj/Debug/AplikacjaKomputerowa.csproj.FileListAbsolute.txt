@@ -18,3 +18,4 @@ C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaK
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Dodaj_formularz.baml
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Wydaj_formularz.g.cs
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Wydaj_formularz.baml
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.csproj.AssemblyReference.cache
