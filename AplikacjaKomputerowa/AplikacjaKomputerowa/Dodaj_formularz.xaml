@@ -6,65 +6,38 @@
         xmlns:local="clr-namespace:AplikacjaKomputerowa"
         mc:Ignorable="d"
         Title="Dodaj_formularz" Height="500
-        " Width="900">
+        " Width="200">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="197*"/>
-            <ColumnDefinition Width="105*"/>
-            <ColumnDefinition Width="491*"/>
-        </Grid.ColumnDefinitions>
-        <Button Content="OK" HorizontalAlignment="Center" Margin="7,0,408,10" VerticalAlignment="Bottom" Width="76" Click="Button_Click" Grid.Column="3"/>
-
-
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="420" Margin="0" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="3">
-            <RadioButton Content="Kondesator" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="Radio1_Checked" GroupName="Tabela"/>
-
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="420" Margin="0,0,296,0" VerticalAlignment="Top" Width="300" Grid.Column="2" Grid.ColumnSpan="2">
-            <RadioButton Content="Rezystor" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="Radio2_Checked" GroupName="Tabela" />
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="420" Margin="0" VerticalAlignment="Top" Width="300" Grid.Column="3">
-            <RadioButton Content="Dioda" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="Radio3_Checked" GroupName="Tabela"/>
-        </Border>
+        <ComboBox Name="Type" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Type_SelectionChanged">
+            <ComboBoxItem>Resistors</ComboBoxItem>
+            <ComboBoxItem>Capacitors</ComboBoxItem>
+            <ComboBoxItem>Ferrite Beads</ComboBoxItem>
+            <ComboBoxItem>Connectors</ComboBoxItem>
+            <ComboBoxItem>Diodes</ComboBoxItem>
+            <ComboBoxItem>Optoisolators</ComboBoxItem>
+            <ComboBoxItem>Oscillators</ComboBoxItem>
+            <ComboBoxItem>DCDC</ComboBoxItem>
+            <ComboBoxItem>Transistors</ComboBoxItem>
+            <ComboBoxItem>Fuses</ComboBoxItem>
+            <ComboBoxItem>Modules</ComboBoxItem>
+        </ComboBox>
+        <Button Content="OK" HorizontalAlignment="Center" Margin="52,0,64,10" VerticalAlignment="Bottom" Width="76" Click="Button_Click"/>
         <Label Content="Podaj typ:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="265" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TypC" HorizontalAlignment="Left" Height="23" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Typx" HorizontalAlignment="Left" Height="23" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
         <Label Content="Podaj Numer cześci:" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
-        <TextBox x:Name="PartC" HorizontalAlignment="Left" Height="23" Margin="10,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Partx" HorizontalAlignment="Left" Height="23" Margin="10,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
         <Label Content="Podaj ilość:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
-        <TextBox x:Name="Stanc" HorizontalAlignment="Left" Height="23" Margin="10,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
-        <Label Content="Podaj Pojemność:" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
-        <TextBox x:Name="SpecC1" HorizontalAlignment="Left" Height="23" Margin="10,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
-        <Label Content="Podaj Tolerancje:" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
-        <TextBox x:Name="SpecC2" HorizontalAlignment="Left" Height="23" Margin="10,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
-        <Label Content="Podaj Napiecie:" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
-        <TextBox x:Name="SpecC3" HorizontalAlignment="Left" Height="23" Margin="10,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
-        <Label Content="Podaj typ:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="265" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <TextBox x:Name="TypR" HorizontalAlignment="Left" Height="23" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Podaj Numer cześci:" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167" Grid.Column="2"/>
-        <TextBox x:Name="PartR" HorizontalAlignment="Left" Height="23" Margin="10,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Podaj ilość:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167" Grid.Column="2"/>
-        <TextBox x:Name="StanR" HorizontalAlignment="Left" Height="23" Margin="10,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Podaj Rezystancje:" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167" Grid.Column="2"/>
-        <TextBox x:Name="SpecR1" HorizontalAlignment="Left" Height="23" Margin="10,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Podaj Tolerancje:" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167" Grid.Column="2"/>
-        <TextBox x:Name="SpecR2" HorizontalAlignment="Left" Height="23" Margin="10,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Podaj MOC:" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167" Grid.Column="2"/>
-        <TextBox x:Name="SpecR3" HorizontalAlignment="Left" Height="23" Margin="10,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Podaj typ:" HorizontalAlignment="Left" Margin="200,42,0,0" VerticalAlignment="Top" Width="265" Grid.Column="3"/>
-        <TextBox x:Name="TypD" HorizontalAlignment="Left" Height="23" Margin="200,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <Label Content="Podaj Numer cześci:" HorizontalAlignment="Left" Margin="200,91,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <TextBox x:Name="PartD" HorizontalAlignment="Left" Height="23" Margin="200,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <Label Content="Podaj ilość:" HorizontalAlignment="Left" Margin="200,140,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <TextBox x:Name="StanD" HorizontalAlignment="Left" Height="23" Margin="200,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <Label Content="Podaj Napiecie" HorizontalAlignment="Left" Margin="200,189,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <TextBox x:Name="SpecD1" HorizontalAlignment="Left" Height="23" Margin="200,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <Label Content="Podaj Prąd:" HorizontalAlignment="Left" Margin="200,238,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <TextBox x:Name="SpecD2" HorizontalAlignment="Left" Height="23" Margin="200,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <Label Content="Podaj Kolor:" HorizontalAlignment="Left" Margin="200,292,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <TextBox x:Name="SpecD3" HorizontalAlignment="Left" Height="23" Margin="200,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <Label Content="Podaj Moc:" HorizontalAlignment="Left" Margin="200,346,0,0" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
-        <TextBox x:Name="SpecD4" HorizontalAlignment="Left" Height="23" Margin="200,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="3"/>
+        <TextBox x:Name="Stanx" HorizontalAlignment="Left" Height="23" Margin="10,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+        <Label x:Name="Text_1" Content="Podaj Pojemność:" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
+        <TextBox x:Name="Spec1x" HorizontalAlignment="Left" Height="23" Margin="10,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+        <Label x:Name="Text_2" Content="Podaj Tolerancje:" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
+        <TextBox x:Name="Spec2x" HorizontalAlignment="Left" Height="23" Margin="10,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+        <Label x:Name="Text_3" Content="Podaj Napiecie:" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
+        <TextBox x:Name="Spec3x" HorizontalAlignment="Left" Height="23" Margin="10,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+        <Label x:Name="Text_4" Content="Podaj Napiecie:" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top" Width="167"/>
+        <TextBox x:Name="Spec4x" HorizontalAlignment="Left" Height="23" Margin="10,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+
+
 
 
 

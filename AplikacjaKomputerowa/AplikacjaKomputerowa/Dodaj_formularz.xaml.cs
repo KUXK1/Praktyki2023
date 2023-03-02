@@ -46,54 +46,58 @@ namespace AplikacjaKomputerowa
         {
             Tabela = "Diodes";
             Quera = "INSERT INTO Diodes (Typ, Part_number, Stan, Napiecie, Prąd, Kolor, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        }        
+        private void Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (Tabela)
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            string x = selectedItem.Content.ToString();
+            switch (x)
             {
-                case "Capacitors":
-                    Typ = TypC.Text;
-                    Numer = PartC.Text;
-                    Stan = Stanc.Text;
-                    Spec1 = SpecC1.Text;
-                    Spec2 = SpecC2.Text;
-                    Spec3 = SpecC3.Text;
-
+                case "Resistors":
+                    Tabela = x;
+                    Quera = "INSERT INTO Resistors (Typ, Part_number, Stan, Rezystancja, Tolerancja, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+                    Text_1.Content = "Rezystancja:";
+                    Text_2.Content = "Tolerancja:";
+                    Text_3.Content = "Moc:";
+                    Text_4.Content = "Pozostaw puste:";
                     break;
                 case "Diodes":
-                    Typ = TypD.Text;
-                    Numer = PartD.Text;
-                    Stan = StanD.Text;
-                    Spec1 = SpecD1.Text;
-                    Spec2 = SpecD2.Text;
-                    Spec3 = SpecD3.Text;
-                    Spec4 = SpecD4.Text;
+                    Tabela = x;
+                    Quera = "INSERT INTO Diodes (Typ, Part_number, Stan, Napiecie, Prąd, Kolor, Moc) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
+                    Text_1.Content = "Napiecie:";
+                    Text_2.Content = "Prad:";
+                    Text_3.Content = "Kolor:";
+                    Text_4.Content = "Moc:";
                     break;
-                case "Resistors":
-                    Typ = TypR.Text;
-                    Numer = PartR.Text;
-                    Stan = StanR.Text;
-                    Spec1 = SpecR1.Text;
-                    Spec2 = SpecR2.Text;
-                    Spec3 = SpecR3.Text;
+                case "Capacitors":
+                    Tabela = x;
+                    Quera = "INSERT INTO Capacitors (Typ, Part_number, Stan, Pojemnosc, Tolerancja, Napiecie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+                    Text_1.Content = "Pojemność:";
+                    Text_2.Content = "Tolerancja:";
+                    Text_3.Content = "Napiecie:";
+                    Text_4.Content = "Pozostaw puste:";
                     break;
                 default:
 
                     break;
-
-
-
             }
-            
-            
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
-
-                
-                DialogResult = true;
-                this.Close();
+            Typ = Typx.Text;
+            Numer = Partx.Text;
+            Stan = Stanx.Text;
+            Spec1 = Spec1x.Text;
+            Spec2 = Spec2x.Text;
+            Spec3 = Spec3x.Text;
+            Spec4 = Spec4x.Text;
+            DialogResult = true;
+            this.Close();
             
         }
 
-        
+
     }
 }

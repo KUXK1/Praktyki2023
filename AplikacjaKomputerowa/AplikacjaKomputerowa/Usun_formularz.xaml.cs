@@ -25,34 +25,19 @@ namespace AplikacjaKomputerowa
         {
             InitializeComponent();
         }
-        private void ok_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
         private void ok_Click_1(object sender, RoutedEventArgs e)
         {
-
-            
             y = Input2.Text;
-            
-
-            // Zamykanie okna dialogowego z wartością true, jeśli OK zostało kliknięte
             DialogResult = true;
             this.Close();
         }
 
-        private void Radio1_Checked(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            x = "capacitors";
-        }
-        private void Radio2_Checked(object sender, RoutedEventArgs e)
-        {
-            x = "Diodes";
-        }
-        private void Radio3_Checked(object sender, RoutedEventArgs e)
-        {
-            x = " resistors";
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            x = selectedItem.Content.ToString();
         }
     }
 }
