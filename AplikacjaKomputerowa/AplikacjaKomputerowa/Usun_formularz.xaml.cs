@@ -21,6 +21,7 @@ namespace AplikacjaKomputerowa
     {
         public string x { get; set; }
         public string y { get; set; }
+        public string z { get; set; }
         public Usun_formularz()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace AplikacjaKomputerowa
         private void ok_Click_1(object sender, RoutedEventArgs e)
         {
             y = Input2.Text;
+            z = Input3.Text;
             DialogResult = true;
             this.Close();
         }

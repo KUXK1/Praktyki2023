@@ -25,6 +25,7 @@
             <ComboBoxItem>Transistors</ComboBoxItem>
             <ComboBoxItem>Fuses</ComboBoxItem>
             <ComboBoxItem>Modules</ComboBoxItem>
+            <ComboBoxItem>IC</ComboBoxItem>
         </ComboBox>
         <ComboBox Name="left_sel" HorizontalAlignment="Left" Margin="200,0,0,150" VerticalAlignment="Bottom" Width="120" SelectionChanged="left_sel_SelectionChanged">
             <ComboBoxItem>Resistors</ComboBoxItem>
@@ -38,6 +39,7 @@
             <ComboBoxItem>Transistors</ComboBoxItem>
             <ComboBoxItem>Fuses</ComboBoxItem>
             <ComboBoxItem>Modules</ComboBoxItem>
+            <ComboBoxItem>IC</ComboBoxItem>
         </ComboBox>
         <ComboBox Name="right_sel" HorizontalAlignment="Right" Margin="0,0,200,150" VerticalAlignment="Bottom" Width="120" SelectionChanged="right_sel_SelectionChanged">
             <ComboBoxItem>Resistors</ComboBoxItem>
@@ -51,6 +53,7 @@
             <ComboBoxItem>Transistors</ComboBoxItem>
             <ComboBoxItem>Fuses</ComboBoxItem>
             <ComboBoxItem>Modules</ComboBoxItem>
+            <ComboBoxItem>IC</ComboBoxItem>
         </ComboBox>
         
         

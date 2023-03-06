@@ -64,6 +64,71 @@ namespace AplikacjaKomputerowa
                     Text_3.Content = "Napiecie:";
                     Text_4.Content = "Pozostaw puste:";
                     break;
+                case "DCDC":
+                    Tabela = x;
+                    Quera = "INSERT INTO DCDC (Typ, Part_number, Stan, Obudowa, Napięcie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4)";
+                    Text_1.Content = "Obudowa:";
+                    Text_2.Content = "Napięcie:";
+                    Text_3.Content = "Pozostaw puste:";
+                    Text_4.Content = "Pozostaw puste:";
+                    break;
+                case "Fuses":
+                    Tabela = x;
+                    Quera = "INSERT INTO Fuses (Typ, Part_number, Stan, Prąd, Napięcie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4)";
+                    Text_1.Content = "Prąd:";
+                    Text_2.Content = "Napięcie:";
+                    Text_3.Content = "Pozostaw puste:";
+                    Text_4.Content = "Pozostaw puste:";
+                    break;
+                case "Oscillators":
+                    Tabela = x;
+                    Quera = "INSERT INTO Oscillators (Typ, Part_number, Stan, Obudowa, Częstotliwość, Pojemność) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+                    Text_1.Content = "Obudowa:";
+                    Text_2.Content = "Częstotliwość:";
+                    Text_3.Content = "Pojemność:";
+                    Text_4.Content = "Pozostaw puste:";
+                    break;
+                case "Optolsolators":
+                    Tabela = x;
+                    Quera = "INSERT INTO Optolsolator (Typ, Part_number, Stan, Obudowa, Napięcie, Pasmo, Technologia) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
+                    Text_1.Content = "Obudowa:";
+                    Text_2.Content = "Napięcie:";
+                    Text_3.Content = "Pasmo:";
+                    Text_4.Content = "Technologia:";
+                    break;
+                case "Transistors":
+                    Tabela = x;
+                    Quera = "INSERT INTO Transistors (Typ, Part_number, Stan, Prąd, Napięcie, Technologia) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4, @Value5)";
+                    Text_1.Content = "Prąd:";
+                    Text_2.Content = "Napięcie:";
+                    Text_4.Content = "Pozostaw puste:";
+                    Text_3.Content = "Technologia:";
+                    break;
+                case "Connectors":
+                    Tabela = x;
+                    Quera = "INSERT INTO Connectors (Typ, Part_number, Stan) VALUES (@Value0, @Value1, @Value2)";
+                    Text_1.Content = "Pozostaw puste:";
+                    Text_2.Content = "Pozostaw puste:";
+                    Text_4.Content = "Pozostaw puste:";
+                    Text_3.Content = "Pozostaw puste:";
+                    break;
+                case "Modules":
+                    Tabela = x;
+                    Quera = "INSERT INTO Modules (Typ, Part_number, Stan) VALUES (@Value0, @Value1, @Value2)";
+                    Text_1.Content = "Pozostaw puste:";
+                    Text_2.Content = "Pozostaw puste:";
+                    Text_4.Content = "Pozostaw puste:";
+                    Text_3.Content = "Pozostaw puste:";
+                    break;
+                case "IC":
+                    Tabela = x;
+                    Quera = "INSERT INTO IC (Typ, Part_number, Stan, Obudowa, Napięcie) VALUES (@Value0, @Value1, @Value2, @Value3, @Value4)";
+                    Text_1.Content = "Obudowa:";
+                    Text_2.Content = "Napięcie:";
+                    Text_4.Content = "Pozostaw puste:";
+                    Text_3.Content = "Pozostaw puste:";
+                    break;
+
                 default:
 
                     break;

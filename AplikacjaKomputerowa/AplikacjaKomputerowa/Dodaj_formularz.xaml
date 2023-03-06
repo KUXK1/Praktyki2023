@@ -20,6 +20,7 @@
             <ComboBoxItem>Transistors</ComboBoxItem>
             <ComboBoxItem>Fuses</ComboBoxItem>
             <ComboBoxItem>Modules</ComboBoxItem>
+            <ComboBoxItem>IC</ComboBoxItem>
         </ComboBox>
         <Button Content="OK" HorizontalAlignment="Center" Margin="52,0,64,10" VerticalAlignment="Bottom" Width="76" Click="Button_Click"/>
         <Label Content="Podaj typ:" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="265" Grid.ColumnSpan="2"/>

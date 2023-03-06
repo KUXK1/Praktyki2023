@@ -77,14 +77,42 @@ namespace AplikacjaKomputerowa
             {
                 string Tabela = obj.x;
                 string input2 = obj.y;
-                BazaDanych bazaDanych = new BazaDanych();
-                SqlConnection con = bazaDanych.SQL();
-                con.Open();
-                string sql = $"DELETE FROM {Tabela} WHERE Part_number = @Value0";
-                SqlCommand command = new SqlCommand(sql, con);
-                command.Parameters.AddWithValue("@Value0", input2);
-                command.ExecuteNonQuery();
-                con.Close();
+                string input3 = obj.z;
+                if (input3 == "")
+                {
+                    BazaDanych bazaDanych = new BazaDanych();
+                    SqlConnection con = bazaDanych.SQL();
+                    con.Open();
+                    string sql = $"DELETE FROM {Tabela} WHERE Part_number = @Value0";
+                    SqlCommand command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@Value0", input2);
+                    command.ExecuteNonQuery();
+                    con.Close();
+                }
+                else
+                {
+                    BazaDanych bazaDanych = new BazaDanych();
+                    SqlConnection con = bazaDanych.SQL();
+                    con.Open();
+                    string sql = $"UPDATE {Tabela} SET stan = stan - @Value0 WHERE Part_number = @Value1";
+                    SqlCommand command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@Value1", input2);
+                    command.Parameters.AddWithValue("@Value0", input3);
+                    command.ExecuteNonQuery();
+                    string sel = $"select stan from {Tabela} where Part_number = @Value0";
+                    SqlCommand com = new SqlCommand(sel, con);
+                    com.Parameters.AddWithValue("@Value0", input2);
+                    int currentAmount = (int)com.ExecuteScalar();
+                    if (currentAmount <= 0)
+                    {
+                        string del = $"delete from {Tabela} where Part_number = @Value0";
+                        command = new SqlCommand(del, con);
+                        command.Parameters.AddWithValue("@Value0", input2);
+                        command.ExecuteNonQuery();
+                    }
+                    con.Close();
+                }
+                
                 DataTables();
             }
         }
@@ -115,10 +143,16 @@ namespace AplikacjaKomputerowa
                     command.Parameters.AddWithValue("@Value0", Typ);
                     command.Parameters.AddWithValue("@Value1", Numer);
                     command.Parameters.AddWithValue("@Value2", Stan);
-                    command.Parameters.AddWithValue("@Value3", Spec1);
-                    command.Parameters.AddWithValue("@Value4", Spec2);
-                    command.Parameters.AddWithValue("@Value5", Spec3);
-                    if (Tabela == "Diodes") { command.Parameters.AddWithValue("@Value6", Spec4); }
+                    if (Tabela != "Connectors" || Tabela != "Modules")
+                    {
+                        command.Parameters.AddWithValue("@Value3", Spec1);
+                        command.Parameters.AddWithValue("@Value4", Spec2);
+                        if (Tabela != "Fuses" || Tabela != "DCDC" || Tabela !="IC")
+                        {
+                            command.Parameters.AddWithValue("@Value5", Spec3);
+                            if (Tabela == "Diodes" || Tabela == "Optolsolators") { command.Parameters.AddWithValue("@Value6", Spec4); }
+                        }
+                    }
                     command.ExecuteNonQuery();
                 }
                 else
