@@ -5,57 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplikacjaKomputerowa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
-    <Grid>
-        <Button x:Name="Usuń" Content="Usuń" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,0,40" Click="Usuń_Click"/>
-        <Button x:Name="Wydaj" Content="Wydaj" HorizontalAlignment="Right"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="0,0,125,40" Click="Wydaj_Click"/>
-        <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Left"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Bottom" Width="250" Height="50" Margin="125,0,3,40" Click="Dodaj_Click"/>
-        <DataGrid x:Name="Kondesatory" AutoGenerateColumns="True"  Width="630" HorizontalAlignment="Left" VerticalAlignment="Top" Height="871"/>
-        <DataGrid x:Name="Rezystory"  Width="630" HorizontalAlignment="Center" VerticalAlignment="Top" Height="871"/>
-        <DataGrid x:Name="Diody"  Width="630" HorizontalAlignment="Right" VerticalAlignment="Top" Height="871"/>
-        <ComboBox Name="Mid_sel" HorizontalAlignment="Center" Margin="0,0,0,150" VerticalAlignment="Bottom" Width="120" SelectionChanged="Mid_sel_SelectionChanged">
-            <ComboBoxItem>Resistors</ComboBoxItem>
-            <ComboBoxItem>Capacitors</ComboBoxItem>
-            <ComboBoxItem>Ferrite Beads</ComboBoxItem>
-            <ComboBoxItem>Connectors</ComboBoxItem>
-            <ComboBoxItem>Diodes</ComboBoxItem>
-            <ComboBoxItem>Optoisolators</ComboBoxItem>
-            <ComboBoxItem>Oscillators</ComboBoxItem>
-            <ComboBoxItem>DCDC</ComboBoxItem>
-            <ComboBoxItem>Transistors</ComboBoxItem>
-            <ComboBoxItem>Fuses</ComboBoxItem>
-            <ComboBoxItem>Modules</ComboBoxItem>
-            <ComboBoxItem>IC</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Name="left_sel" HorizontalAlignment="Left" Margin="200,0,0,150" VerticalAlignment="Bottom" Width="120" SelectionChanged="left_sel_SelectionChanged">
-            <ComboBoxItem>Resistors</ComboBoxItem>
-            <ComboBoxItem>Capacitors</ComboBoxItem>
-            <ComboBoxItem>Ferrite Beads</ComboBoxItem>
-            <ComboBoxItem>Connectors</ComboBoxItem>
-            <ComboBoxItem>Diodes</ComboBoxItem>
-            <ComboBoxItem>Optoisolators</ComboBoxItem>
-            <ComboBoxItem>Oscillators</ComboBoxItem>
-            <ComboBoxItem>DCDC</ComboBoxItem>
-            <ComboBoxItem>Transistors</ComboBoxItem>
-            <ComboBoxItem>Fuses</ComboBoxItem>
-            <ComboBoxItem>Modules</ComboBoxItem>
-            <ComboBoxItem>IC</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Name="right_sel" HorizontalAlignment="Right" Margin="0,0,200,150" VerticalAlignment="Bottom" Width="120" SelectionChanged="right_sel_SelectionChanged">
-            <ComboBoxItem>Resistors</ComboBoxItem>
-            <ComboBoxItem>Capacitors</ComboBoxItem>
-            <ComboBoxItem>Ferrite Beads</ComboBoxItem>
-            <ComboBoxItem>Connectors</ComboBoxItem>
-            <ComboBoxItem>Diodes</ComboBoxItem>
-            <ComboBoxItem>Optoisolators</ComboBoxItem>
-            <ComboBoxItem>Oscillators</ComboBoxItem>
-            <ComboBoxItem>DCDC</ComboBoxItem>
-            <ComboBoxItem>Transistors</ComboBoxItem>
-            <ComboBoxItem>Fuses</ComboBoxItem>
-            <ComboBoxItem>Modules</ComboBoxItem>
-            <ComboBoxItem>IC</ComboBoxItem>
-        </ComboBox>
-        
-        
-    </Grid>
+        Title="MainWindow" Height="540" Width="960" WindowState="Maximized" ResizeMode="CanResize" MinHeight="540"  MinWidth="960">
+    <WrapPanel Orientation="Horizontal">
+        <StackPanel>
+            <DataGrid x:Name="DataPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="480" Width="690" Margin="0"/>
+            <ComboBox x:Name="Mid_sel" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" Width="120" SelectionChanged="Sel_SelectionChanged" Height="24">
+                <ComboBoxItem Content="Resistors"/>
+                <ComboBoxItem Content="Capacitors"/>
+                <ComboBoxItem Content="Ferrite Beads"/>
+                <ComboBoxItem Content="Connectors"/>
+                <ComboBoxItem Content="Diodes"/>
+                <ComboBoxItem Content="Optoisolators"/>
+                <ComboBoxItem Content="Oscillators"/>
+                <ComboBoxItem Content="DCDC"/>
+                <ComboBoxItem Content="Transistors"/>
+                <ComboBoxItem Content="Fuses"/>
+                <ComboBoxItem Content="Modules"/>
+                <ComboBoxItem Content="IC"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Button Content="Add component" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Top" Width="250" Height="50" Margin="0" Click="Add_Click"/>
+            <Button Content="Delete component" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Top" Width="250" Height="50" Margin="0" Click="Delete_Click"/>
+            <Button Content="Projects" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Top" Width="250" Height="50" Margin="0" Click="Projects_Click"/>
+        </StackPanel>
+
+
+
+    </WrapPanel>
 </Window>

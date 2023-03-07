@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplikacjaKomputerowa"
         mc:Ignorable="d"
-        Title="Usun_formularz" Height="450" Width="200">
+        Title="Usun_formularz" Height="450" Width="200" MinWidth="200" MinHeight="450">
     <Grid>
         <Button x:Name="ok" Content="OK" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" HorizontalAlignment="Center" Click="ok_Click_1"/>
 
-        <Label Content="Wybierz Tabele" HorizontalAlignment="Center" Margin="38,5,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Label Content="Choose a type:" HorizontalAlignment="Center" Margin="38,5,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
         <TextBox x:Name="Input2" HorizontalAlignment="Center" Height="23" Margin="38,133,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Podaj Nazwe" HorizontalAlignment="Center" Margin="38,109,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Label Content="Component number:" HorizontalAlignment="Center" Margin="38,109,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
         <ComboBox HorizontalAlignment="Left" Margin="38,34,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem>Resistors</ComboBoxItem>
             <ComboBoxItem>Capacitors</ComboBoxItem>
@@ -27,7 +27,7 @@
             <ComboBoxItem>IC</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="Input3" HorizontalAlignment="Center" Height="23" Margin="38,185,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Podaj ile:" HorizontalAlignment="Center" Margin="38,161,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Label Content="quantity:" HorizontalAlignment="Center" Margin="38,161,34,0" VerticalAlignment="Top" Width="120" Height="24"/>
 
 
 

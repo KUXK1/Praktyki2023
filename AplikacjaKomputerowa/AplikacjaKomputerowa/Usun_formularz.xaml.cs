@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace AplikacjaKomputerowa
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Dodaj_formularz.xaml
-    /// </summary>
+    
     public partial class Usun_formularz : Window
     {
         public string x { get; set; }

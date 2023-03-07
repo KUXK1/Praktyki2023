@@ -26,18 +26,19 @@ namespace AplikacjaKomputerowa
 
         public MainWindow()
         {
+            this.SizeToContent = SizeToContent.WidthAndHeight;
             InitializeComponent();
             DataTables();
         }
 
 
-        private void Dodaj_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            FormularzDodawania();
+            AddCom();
         }
-        private void Usuń_Click(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            FolmularzUsuwania();
+            DeleteCom();
         }
         private void DataTables()
         {
@@ -45,32 +46,16 @@ namespace AplikacjaKomputerowa
             SqlConnection con = bazaDanych.SQL();
             con.Open();
             string query1 = "SELECT * FROM Diodes";
-            string query2 = "SELECT * FROM Resistors";
-            string query3 = "SELECT * FROM Capacitors";
             using (SqlCommand cmd = new SqlCommand(query1, con))
             {
                 DataTable dt = new DataTable("komponenty");
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dt);
-                Kondesatory.ItemsSource = dt.DefaultView;
-            }
-            using (SqlCommand cmd = new SqlCommand(query2, con))
-            {
-                DataTable dt = new DataTable("komponenty");
-                SqlDataAdapter data = new SqlDataAdapter(cmd);
-                data.Fill(dt);
-                Rezystory.ItemsSource = dt.DefaultView;
-            }
-            using (SqlCommand cmd = new SqlCommand(query3, con))
-            {
-                DataTable dt = new DataTable("komponenty");
-                SqlDataAdapter data = new SqlDataAdapter(cmd);
-                data.Fill(dt);
-                Diody.ItemsSource = dt.DefaultView;
+                DataPanel.ItemsSource = dt.DefaultView;
             }
             con.Close();
         }
-        private void FolmularzUsuwania()
+        private void DeleteCom()
         {
             Usun_formularz obj = new Usun_formularz();
             if (obj.ShowDialog() == true)
@@ -94,12 +79,12 @@ namespace AplikacjaKomputerowa
                     BazaDanych bazaDanych = new BazaDanych();
                     SqlConnection con = bazaDanych.SQL();
                     con.Open();
-                    string sql = $"UPDATE {Tabela} SET stan = stan - @Value0 WHERE Part_number = @Value1";
+                    string sql = $"UPDATE {Tabela} SET Quantity = Quantity - @Value0 WHERE Part_number = @Value1";
                     SqlCommand command = new SqlCommand(sql, con);
                     command.Parameters.AddWithValue("@Value1", input2);
                     command.Parameters.AddWithValue("@Value0", input3);
                     command.ExecuteNonQuery();
-                    string sel = $"select stan from {Tabela} where Part_number = @Value0";
+                    string sel = $"select Quantity from {Tabela} where Part_number = @Value0";
                     SqlCommand com = new SqlCommand(sel, con);
                     com.Parameters.AddWithValue("@Value0", input2);
                     int currentAmount = (int)com.ExecuteScalar();
@@ -116,15 +101,15 @@ namespace AplikacjaKomputerowa
                 DataTables();
             }
         }
-        private void FormularzDodawania()
+        private void AddCom()
         {
             Dodaj_formularz obj = new Dodaj_formularz();
             if (obj.ShowDialog() == true)
             {
                 String Tabela = obj.Tabela;
-                String Typ = obj.Typ;
-                String Numer = obj.Numer;
-                String Stan = obj.Stan;
+                String Type = obj.Typ;
+                String Number = obj.Number;
+                String Quantity = obj.Quantity;
                 String Spec1 = obj.Spec1;
                 String Spec2 = obj.Spec2;
                 String Spec3 = obj.Spec3;
@@ -135,14 +120,14 @@ namespace AplikacjaKomputerowa
                 con.Open();
                 string query = $"SELECT COUNT(*) FROM {Tabela} WHERE Part_number = @Value0";
                 SqlCommand command = new SqlCommand(query, con);
-                command.Parameters.AddWithValue("@Value0", Numer);
+                command.Parameters.AddWithValue("@Value0", Number);
                 int count = (int)command.ExecuteScalar();
                 if (count == 0)
                 {
                     command = new SqlCommand(querya, con);
-                    command.Parameters.AddWithValue("@Value0", Typ);
-                    command.Parameters.AddWithValue("@Value1", Numer);
-                    command.Parameters.AddWithValue("@Value2", Stan);
+                    command.Parameters.AddWithValue("@Value0", Type);
+                    command.Parameters.AddWithValue("@Value1", Number);
+                    command.Parameters.AddWithValue("@Value2", Quantity);
                     if (Tabela != "Connectors" || Tabela != "Modules")
                     {
                         command.Parameters.AddWithValue("@Value3", Spec1);
@@ -157,10 +142,10 @@ namespace AplikacjaKomputerowa
                 }
                 else
                 {
-                    query = $"UPDATE {Tabela} SET stan = stan + @Value0 WHERE Part_number = @Value1";
+                    query = $"UPDATE {Tabela} SET Quantity = Quantity + @Value0 WHERE Part_number = @Value1";
                     command = new SqlCommand(query, con);
-                    command.Parameters.AddWithValue("@Value1", Numer);
-                    command.Parameters.AddWithValue("@Value0", Stan);
+                    command.Parameters.AddWithValue("@Value1", Number);
+                    command.Parameters.AddWithValue("@Value0", Quantity);
                     command.ExecuteNonQuery();
                 }
                 con.Close();
@@ -171,33 +156,9 @@ namespace AplikacjaKomputerowa
 
         }
 
-        private void Wydaj_Click(object sender, RoutedEventArgs e)
-        {
-            Wydaj_formularz obj = new Wydaj_formularz();
-            if (obj.ShowDialog() == true)
-            {
-                String project = obj.project;
-                String Hm = obj.Hm;
-            }
-        }
+       
 
-        private void left_sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-                ComboBox comboBox = (ComboBox)sender;
-                ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-                string lef_sele = selectedItem.Content.ToString();
-                BazaDanych bazaDanych = new BazaDanych();
-                SqlConnection con = bazaDanych.SQL();
-                con.Open();
-                string query1 = $"SELECT * FROM {lef_sele}";
-                SqlCommand cmd = new SqlCommand(query1, con);
-                DataTable dt = new DataTable("komponenty");
-                SqlDataAdapter data = new SqlDataAdapter(cmd);
-                data.Fill(dt);
-                Kondesatory.ItemsSource = dt.DefaultView;      
-        }
-
-        private void Mid_sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
                 ComboBox comboBox = (ComboBox)sender;
@@ -212,23 +173,15 @@ namespace AplikacjaKomputerowa
                 DataTable dt = new DataTable("komponenty");
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dt);
-                Rezystory.ItemsSource = dt.DefaultView;
+                DataPanel.ItemsSource = dt.DefaultView;
         }
-        private void right_sel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void Projects_Click(object sender, RoutedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            string lef_sele = selectedItem.Content.ToString();
-            BazaDanych bazaDanych = new BazaDanych();
-            SqlConnection con = bazaDanych.SQL();
-            con.Open();
-            string query1 = $"SELECT * FROM {lef_sele}";
-            SqlCommand cmd = new SqlCommand(query1, con);
-            DataTable dt = new DataTable("komponenty");
-            SqlDataAdapter data = new SqlDataAdapter(cmd);
-            data.Fill(dt);
-            Diody.ItemsSource = dt.DefaultView;
-            
+            ProjectList projectwindow = new ProjectList();
+            projectwindow.Show();
+
+
         }
     }
 }
