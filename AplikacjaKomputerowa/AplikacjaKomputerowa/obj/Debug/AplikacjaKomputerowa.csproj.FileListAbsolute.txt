@@ -19,3 +19,5 @@ C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaK
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\AplikacjaKomputerowa.csproj.AssemblyReference.cache
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\ProjectList.g.cs
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\ProjectList.baml
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Add_Project.g.cs
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Add_Project.baml
