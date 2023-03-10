@@ -86,5 +86,30 @@ namespace AplikacjaKomputerowa
             ProjectView.ItemsSource = dt.DefaultView;
             con.Close();
         }
+
+        private void DelPrj_Click(object sender, RoutedEventArgs e)
+        {
+            Remove_Project remove_Project = new Remove_Project();
+            if (remove_Project.ShowDialog() == true)
+            {
+                String Q = remove_Project.Q;
+                String C = remove_Project.C;
+                String P = remove_Project.P;
+                BazaDanych bazaDanych = new BazaDanych();
+                SqlConnection con = bazaDanych.SQL();
+                con.Open();
+                SqlCommand cmd = new SqlCommand(Q, con);
+                cmd.Parameters.AddWithValue("@Value0", P);
+                if (Q != "")
+                {
+                    cmd.Parameters.AddWithValue("@Value1", C);
+                }
+                cmd.ExecuteNonQuery();
+                con.Close();
+                DataRefresh();
+
+            }
+
+        }
     }
 }

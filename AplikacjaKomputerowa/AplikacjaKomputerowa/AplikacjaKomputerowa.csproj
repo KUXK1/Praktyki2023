@@ -68,6 +68,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Remove_Project.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Usun_formularz.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +92,9 @@
     </Compile>
     <Compile Include="ProjectList.xaml.cs">
       <DependentUpon>ProjectList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Remove_Project.xaml.cs">
+      <DependentUpon>Remove_Project.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQLCON.cs" />
     <Compile Include="Usun_formularz.xaml.cs">
