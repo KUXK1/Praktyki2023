@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 ile=(EditText)findViewById(R.id.Ile);
                 x=ile.getText().toString();
                 Skanuj();
-                Dodaj();
+
 
         });
         Usun=findViewById(R.id.Usun);
@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println (result.getContents());
             komponent=result.getContents();
             arr = komponent.split(" ");
+            Dodaj();
 
         }
     });
