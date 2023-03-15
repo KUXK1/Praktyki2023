@@ -15,7 +15,7 @@
         <StackPanel Orientation="Vertical">
             <Button x:Name="AddPrj" Height="50" Width="250" Content="Add Project" Click="AddPrj_Click"/>
             <Button x:Name="DelPrj" Height="50" Content="Delete Project" Click="DelPrj_Click"/>
-            <Button Height="50"/>
+            <Button x:Name="EditPrj" Height="50" Content="Edit Project" Click="EditPrj_Click"/>
         </StackPanel>
     </WrapPanel>
 </Window>

@@ -31,7 +31,7 @@ namespace AplikacjaKomputerowa
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
             P = Prj.Text;
-            C = Prj.Text;
+            C = Comp.Text;
 
             DialogResult = true;
             this.Close();

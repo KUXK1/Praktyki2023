@@ -15,7 +15,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace AplikacjaKomputerowa
-{ 
+{
     public partial class ProjectList : Window
     {
         public ProjectList()
@@ -39,7 +39,7 @@ namespace AplikacjaKomputerowa
             while (reader.Read())
             {
                 string nazwa = reader.GetString(0);
-                ProjectsList.Items.Add(nazwa); 
+                ProjectsList.Items.Add(nazwa);
             }
             reader.Close();
             con.Close();
@@ -74,17 +74,21 @@ namespace AplikacjaKomputerowa
         private void DataRefresh()
         {
             string Selected = ProjectsList.SelectedItem.ToString();
-            BazaDanych bazaDanych = new BazaDanych();
-            SqlConnection con = bazaDanych.SQL();
-            con.Open();
-            string query = $"SELECT Type, Part_Number, Quantity, Comment FROM Projects where Project_name = @value0";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Value0", Selected);
-            DataTable dt = new DataTable("Projects");
-            SqlDataAdapter data = new SqlDataAdapter(cmd);
-            data.Fill(dt);
-            ProjectView.ItemsSource = dt.DefaultView;
-            con.Close();
+            if (Selected != "")
+            {
+                BazaDanych bazaDanych = new BazaDanych();
+                SqlConnection con = bazaDanych.SQL();
+                con.Open();
+                string query = $"SELECT Type, Part_Number, Quantity, Comment FROM Projects where Project_name = @value0";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Value0", Selected);
+                DataTable dt = new DataTable("Projects");
+                SqlDataAdapter data = new SqlDataAdapter(cmd);
+                data.Fill(dt);
+                ProjectView.ItemsSource = dt.DefaultView;
+                con.Close();
+            }
+            
         }
 
         private void DelPrj_Click(object sender, RoutedEventArgs e)
@@ -100,7 +104,7 @@ namespace AplikacjaKomputerowa
                 con.Open();
                 SqlCommand cmd = new SqlCommand(Q, con);
                 cmd.Parameters.AddWithValue("@Value0", P);
-                if (Q != "")
+                if (C != "")
                 {
                     cmd.Parameters.AddWithValue("@Value1", C);
                 }
@@ -110,6 +114,54 @@ namespace AplikacjaKomputerowa
 
             }
 
+        }
+
+        private void EditPrj_Click(object sender, RoutedEventArgs e)
+        {
+            EditorProject editorProject = new EditorProject();
+            if (editorProject.ShowDialog() == true)
+            {
+                String Q = editorProject.Q;
+                String N = editorProject.N;
+                String S1 = editorProject.S1;
+                String S2 = editorProject.S2;
+                String S3 = editorProject.S3;
+                BazaDanych bazaDanych = new BazaDanych();
+                SqlConnection con = bazaDanych.SQL();
+                con.Open();
+                if (Q != "")
+                {
+                    SqlCommand cmd = new SqlCommand(Q, con);
+                    cmd.Parameters.AddWithValue("@Value1", N);
+                    cmd.Parameters.AddWithValue("@Value0", S1);
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    if(S2!="")
+                    {
+                        Q = "UPDATE Projects SET Quantity = @Value2 WHERE Project_Name = @Value0 And Part_Number = @Value1";
+                        SqlCommand cmd = new SqlCommand(Q, con);
+                        cmd.Parameters.AddWithValue("@Value0", N);
+                        cmd.Parameters.AddWithValue("@Value1", S1);
+                        cmd.Parameters.AddWithValue("@Value2", S2);
+                        cmd.ExecuteNonQuery();
+                        
+                    }
+                    if (S3 != "")
+                    {
+                        Q = "UPDATE Projects SET Comment = @Value2 WHERE Project_Name = @Value0 And Part_Number = @Value1";
+                        SqlCommand cmd = new SqlCommand(Q, con);
+                        cmd.Parameters.AddWithValue("@Value0", N);
+                        cmd.Parameters.AddWithValue("@Value1", S1);
+                        cmd.Parameters.AddWithValue("@Value2", S3);
+                        cmd.ExecuteNonQuery();
+                        
+                    }
+                }
+                con.Close();
+                DataRefresh();
+            }
         }
     }
 }

@@ -23,3 +23,5 @@ C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaK
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Add_Project.baml
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Remove_Project.g.cs
 C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\Remove_Project.baml
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\EditorProject.g.cs
+C:\Users\48536\Desktop\Praktyki2023\Praktyki2023\AplikacjaKomputerowa\AplikacjaKomputerowa\obj\Debug\EditorProject.baml

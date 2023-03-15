@@ -64,6 +64,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditorProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProjectList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +93,9 @@
     </Compile>
     <Compile Include="Dodaj_formularz.xaml.cs">
       <DependentUpon>Dodaj_formularz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorProject.xaml.cs">
+      <DependentUpon>EditorProject.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectList.xaml.cs">
       <DependentUpon>ProjectList.xaml</DependentUpon>
