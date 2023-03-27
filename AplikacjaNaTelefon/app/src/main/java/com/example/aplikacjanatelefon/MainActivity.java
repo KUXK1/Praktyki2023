@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             String x = Q.getText().toString();
             String y = Id.getText().toString();
             String z = T.getText().toString();
-            String queryUp = "Update " + z + " set Quantity = Quantity +" + x + " where Part_number ='" + y + "';";
+            String queryUp = "Update " + z + " set Quantity = Quantity +" + x + " where Component_number ='" + y + "';";
             if (Login != null) {
                 Statement st = Login.createStatement();
                 st.executeQuery(queryUp);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             String x = Q.getText().toString();
             String y = Id.getText().toString();
             String z = T.getText().toString();
-            String queryUp = "Update " + z + " set Quantity = Quantity -" + x + " where Part_number ='" + y + "';";
+            String queryUp = "Update " + z + " set Quantity = Quantity -" + x + " where Component_number ='" + y + "';";
             if (Login != null) {
                 Statement st = Login.createStatement();
                 st.executeQuery(queryUp);

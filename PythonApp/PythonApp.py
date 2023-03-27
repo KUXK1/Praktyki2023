@@ -1,11 +1,11 @@
 import can
 import pygame
 pygame.init()
-W
-Hi
+W = 1920
+Hi = 1080
 win = pygame.display.set_mode((W, Hi),pygame.FULLSCREEN)
-font1 = pygame.font.SysFont('Arial', 300)
-font2 = pygame.font.SysFont('Arial', 200)
+font1 = pygame.font.Font(None, 300)
+font2 = pygame.font.Font(None, 200)
 white=(255,255,255)
 black=(0,0,0)
 test=1
