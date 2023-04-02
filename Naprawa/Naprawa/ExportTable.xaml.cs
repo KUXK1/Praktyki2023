@@ -60,7 +60,7 @@ namespace Naprawa
                         writer.WriteLine(format);
                         break;
                     case 4:
-                        format = $"{reader[0]}/{reader[1]}/{reader[2]}-{reader[3]}, Capacitors {reader[4]}, {reader[4]}, {reader[5]}/{reader[6]}";
+                        format = $"{reader[0]}/{reader[1]}-{reader[2]}, DCDC {reader[3]}, {reader[3]}, {reader[4]}";
                         writer.WriteLine(format);
                         break;
                     case 5:
@@ -88,7 +88,7 @@ namespace Naprawa
                         writer.WriteLine(format);
                         break;
                     case 11:
-                        format = $"{reader[0]}/{reader[1]}, IC {reader[2]}, {reader[2]}, {reader[3]}";
+                        format = $"{reader[0]}/{reader[1]}-{reader[2]}, IC {reader[3]}, {reader[3]}, {reader[4]}";
                         writer.WriteLine(format);
                         break;
                     case 12:
@@ -129,37 +129,37 @@ namespace Naprawa
                     //format = $"{reader[0]}/{reader[1]}-{reader[2]}, Diodes {reader[3]}, {reader[3]}, {reader[4]}/{reader[5]}/{reader[6]}";
                     break;
                 case "Capacitors":
-                    query = $"select Capacitance, Dielectric, Rated Voltage, Package, Component_Number, Tolerance, Type  from Capacitors";
+                    query = $"select Capacitance, Dielectric, Rated_Voltage, Package, Component_Number, Tolerance, Type  from Capacitors";
                     SwitchFormat = 3;
                     //format = $"{reader[0]}/{reader[1]}/{reader[2]}-{reader[3]}, Capacitors {reader[4]}, {reader[4]}, {reader[5]}/{reader[6]}";
                     break;
                 case "DCDC":
-                    query = $"select IN_voltage, OUT_voltage, Power, Component number, Type form DCDC";
+                    query = $"select IN_voltage, OUT_voltage, Power, Component_number, Type from DCDC";
                     SwitchFormat = 4;
                     //format = $"{reader[0]}/{reader[1]}-{reader[2]}, DCDC {reader[3]}, {reader[3]}, {reader[4]}";
                     break;
                 case "Fuses":
-                    query = $"select Rating_current, Switched_max_current, Max voltage, Component number, Type, Package form Fuses";
+                    query = $"select Rating_current, Switched_max_current, Max_voltage, Component_number, Type, Package from Fuses";
                     SwitchFormat = 5;
                     //format = $"{reader[0]}/{reader[1]}/{reader[2]}, Fuses {reader[3]}, {reader[3]}, {reader[4]}/{reader[5]}";
                     break;
                 case "Oscilattors":
-                    query = $"select Frequency, Tolerance, Package, Component_number form Oscilattors";
+                    query = $"select Frequency, Tolerance, Package, Component_number from Oscilattors";
                     SwitchFormat = 6;
                     //format = $"{reader[0]}/{reader[1]}-{reader[2]}, Oscilattors {reader[3]}, {reader[3]}";
                     break;
                 case "Transistors":
-                    query = $"select Voltage, Curent, Package, Component_number, type form Transistors";
+                    query = $"select Voltage, Curent, Package, Component_number, type from Transistors";
                     SwitchFormat = 7;
                     //format = $"{reader[0]}/{reader[1]}-{reader[2]}, Transistors {reader[3]}, {reader[3]}, {reader[4]}";
                     break;
-                case "Ferrite_beads":
-                    query = $"select Impedance_at_HF, Rated_current, Package, Component_number, Resistance form Ferrite_beads";
+                case "Ferrite_Beads":
+                    query = $"select Impedance_at_HF, Rated_current, Package, Component_number, Resistance from Ferrite_Beads";
                     SwitchFormat = 8;
                     //format = $"{reader[0]}/{reader[1]}-{reader[2]}, Ferrite_beads {reader[3]}, {reader[3]}, {reader[4]}";
                     break;
                 case "Connectors":
-                    query = $"select Rows, Pitch, Orientation, Component_number, Mounting, type form Connectors";
+                    query = $"select Rows, Pitch, Orientation, Component_number, Mounting, type from Connectors";
                     SwitchFormat = 9;
                     //format = $"{reader[0]}/{reader[1]}-{reader[2]}, Connectors {reader[3]}, {reader[3]}, {reader[4]}/{reader[5]}";
                     break;
@@ -169,7 +169,7 @@ namespace Naprawa
                     //format = $"{reader[0]}/{reader[1]}, Modules {reader[2]}, {reader[2]}, {reader[3]} ";
                     break;
                 case "IC":
-                    query = $"select Type, Supply_voltage, Component_number, Description from IC";
+                    query = $"select Type, Supply_voltage, Package, Component_number, Description from IC";
                     SwitchFormat = 11;
                     //format = $"{reader[0]}/{reader[1]}, IC {reader[2]}, {reader[2]}, {reader[3]} ";
                     break;

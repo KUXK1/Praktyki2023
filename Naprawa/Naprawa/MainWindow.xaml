@@ -9,20 +9,28 @@
     <WrapPanel Orientation="Horizontal">
         <StackPanel>
             <DataGrid x:Name="DataPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="480" Width="690" Margin="0"/>
-            <ComboBox x:Name="Mid_sel" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" Width="120" SelectionChanged="Sel_SelectionChanged" Height="24">
-                <ComboBoxItem Content="Resistors"/>
-                <ComboBoxItem Content="Capacitors"/>
-                <ComboBoxItem Content="Ferrite_beads"/>
-                <ComboBoxItem Content="Connectors"/>
-                <ComboBoxItem Content="Diodes"/>
-                <ComboBoxItem Content="Oscilattors"/>
-                <ComboBoxItem Content="DCDC"/>
-                <ComboBoxItem Content="Transistors"/>
-                <ComboBoxItem Content="Fuses"/>
-                <ComboBoxItem Content="Modules"/>
-                <ComboBoxItem Content="IC"/>
-                <ComboBoxItem Content="Other"/>
-            </ComboBox>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <Label Content="Find by:" Width="54" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <ComboBox x:Name="FindType" Width="120" Height="24" />
+                <TextBox x:Name="FindText" Height="24" TextWrapping="Wrap" Width="120" />
+                <Button x:Name="Search" Content="Search" Width="75" Click="Search_Click"/>
+                <ComboBox x:Name="Mid_sel" Margin="200,0,0,0" Width="120" SelectionChanged="Sel_SelectionChanged" Height="24" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <ComboBoxItem Content="Resistors"/>
+                    <ComboBoxItem Content="Capacitors"/>
+                    <ComboBoxItem Content="Ferrite_beads"/>
+                    <ComboBoxItem Content="Connectors"/>
+                    <ComboBoxItem Content="Diodes"/>
+                    <ComboBoxItem Content="Oscilattors"/>
+                    <ComboBoxItem Content="DCDC"/>
+                    <ComboBoxItem Content="Transistors"/>
+                    <ComboBoxItem Content="Fuses"/>
+                    <ComboBoxItem Content="Modules"/>
+                    <ComboBoxItem Content="IC"/>
+                    <ComboBoxItem Content="Other"/>
+                </ComboBox>
+
+
+            </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Vertical">
             <Button Content="Add component" HorizontalAlignment="Center"  FontSize="20" Background="#FFDDDDDD" VerticalAlignment="Top" Width="250" Height="50" Margin="0" Click="Add_Click"/>

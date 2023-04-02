@@ -22,6 +22,9 @@ namespace Naprawa
     /// </summary>
     public partial class MainWindow : Window
     {
+        string lef_sele = "Diodes";
+        string FindT;
+        string FindC;
 
 
         public MainWindow()
@@ -45,13 +48,14 @@ namespace Naprawa
             BazaDanych bazaDanych = new BazaDanych();
             SqlConnection con = bazaDanych.SQL();
             con.Open();
-            string query1 = "SELECT * FROM Diodes";
+            string query1 = $"SELECT * FROM {lef_sele}";
             using (SqlCommand cmd = new SqlCommand(query1, con))
             {
                 DataTable dt = new DataTable("komponenty");
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dt);
                 DataPanel.ItemsSource = dt.DefaultView;
+                FillComboBox(dt);
             }
             con.Close();
         }
@@ -105,8 +109,9 @@ namespace Naprawa
             Add_folmularz obj = new Add_folmularz();
             if (obj.ShowDialog() == true)
             {
-
+                
             }
+            DataTables();
         }
 
 
@@ -116,7 +121,7 @@ namespace Naprawa
 
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            string lef_sele = selectedItem.Content.ToString();
+            lef_sele = selectedItem.Content.ToString();
             BazaDanych bazaDanych = new BazaDanych();
             SqlConnection con = bazaDanych.SQL();
             con.Open();
@@ -127,12 +132,57 @@ namespace Naprawa
             SqlDataAdapter data = new SqlDataAdapter(cmd);
             data.Fill(dt);
             DataPanel.ItemsSource = dt.DefaultView;
+            FillComboBox(dt);
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
         {
             ExportTable obj = new ExportTable();
             if (obj.ShowDialog() == true)
+            {
+                DataTables();
+            }
+        }
+        private void FillComboBox(DataTable table)
+        {
+            FindType.Items.Clear();
+            FindType.SelectedIndex = -1;
+            
+            foreach (DataColumn column in table.Columns)
+            {
+                FindType.Items.Add(column.ColumnName);
+            }
+            FindType.SelectedItem = "Select:";
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            FindT = FindText.Text.Trim();
+            Object selectedItem = FindType.SelectedItem;
+            if (selectedItem != null) { 
+                FindC = selectedItem.ToString();
+                if (FindC != "" && FindT != "")
+                {
+                    BazaDanych bazaDanych = new BazaDanych();
+                    SqlConnection con = bazaDanych.SQL();
+                    con.Open();
+                    string query1 = $"SELECT * FROM {lef_sele} where {FindC} LIKE '%{FindT}%'";
+                    SqlCommand cmd = new SqlCommand(query1, con);
+
+                    DataTable dt = new DataTable("komponenty");
+                    SqlDataAdapter data = new SqlDataAdapter(cmd);
+                    data.Fill(dt);
+                    DataPanel.ItemsSource = dt.DefaultView;
+                    FillComboBox(dt);
+                    FindText.Text = "";
+                }
+                else
+                {
+                    DataTables();
+                }
+
+            }
+            else
             {
                 DataTables();
             }
