@@ -18,12 +18,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.sql.Connection;
-import java.sql.Statement;
-
+import java.sql.*;
 public class MainActivity extends AppCompatActivity {
     Button Add;
     Button Remove;
@@ -31,13 +30,14 @@ public class MainActivity extends AppCompatActivity {
     EditText Q;
     EditText T;
     EditText Id;
-
+    TextView Co;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Q= findViewById(R.id.quantity);
         T=findViewById(R.id.Type);
+        Co = findViewById(R.id.Stock);
         Id = findViewById(R.id.IdNum);
         Scan = findViewById(R.id.Scan);
         Add = findViewById(R.id.Add);
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         T.setText(null);
         Id.setText(null);
         Q.setText(null);
+        Co.setText("In stock: ---");
     }
     public void scan(){
         IntentIntegrator intentIntegrator = new IntentIntegrator(
@@ -117,6 +118,26 @@ public class MainActivity extends AppCompatActivity {
             String[] ResultTable = Result.split(" ");
             T.setText(ResultTable[0]);
             Id.setText(ResultTable[1]);
+            try {
+                SqlCon sqlCon = new SqlCon();
+                Connection Login = sqlCon.Con();
+                String queryUp = "Select Quantity from "+ ResultTable[0] +" where Component_Number = '"+ ResultTable[1] +"';";
+                if (Login != null) {
+                    System.out.println ("Wchodzi");
+                    Statement st = Login.createStatement();
+                    ResultSet rs = st.executeQuery(queryUp);
+                    rs.next();
+                    int count = rs.getInt(1);
+                    String X = Integer.toString(count);
+                    Co.setText("In stock: " + X);
+                    st.close();
+                    rs.close();
+                    Login.close();
+                }
+
+            }catch (Exception ex){
+                System.out.println (ex);
+            }
         }
     }
 }
